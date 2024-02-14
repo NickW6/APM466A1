@@ -1,0 +1,275 @@
+---
+title: "466A1"
+author: "Nick"
+date: "2024-02-03"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## R Markdown
+
+This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+
+When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
+
+```{r}
+library("jrvFinance")
+library(ggplot2)
+
+```
+
+
+You can also embed plots, for example:
+
+```{r}
+bond <- read.csv("bonddata.csv")
+bond$coupon_rate <- bond$coupon_rate * 0.01
+ytm <- matrix(nrow = 11,ncol = 10)
+colnames(ytm) <- c('2024-01-08','2024-01-09','2023-01-10','2024-01-11','2024-01-12'
+                      ,'2024-01-15','2024-01-16','2024-01-17','2024-01-18','2024-01-19')
+```
+
+#bond yield on 2024-01-08
+```{r}
+for (i in 1:11) {
+  coupon_rate = bond$coupon_rate[i]
+  closed_price = bond$X2024_1_8[i]
+  maturity_date = bond$Maturity_Date[i]
+  ytm_1_8=bond.yield("2024-01-08", maturity_date, coupon = coupon_rate , freq = 2, closed_price, comp.freq = 2, redemption_value = 100)
+  ytm[i,1] =  ytm_1_8
+}
+```
+
+#bond yield on 2024-01-09
+```{r}
+for (i in 1:11) {
+  coupon_rate = bond$coupon_rate[i]
+  closed_price = bond$X2024_1_9[i]
+  maturity_date = bond$Maturity_Date[i]
+  ytm_1_9=bond.yield("2024-01-09", maturity_date, coupon = coupon_rate , freq = 2, closed_price, comp.freq = 2, redemption_value = 100)
+  ytm[i,2] =  ytm_1_9
+}
+```
+
+#bond yield on 2024-01-10
+```{r}
+for (i in 1:11) {
+  coupon_rate = bond$coupon_rate[i]
+  closed_price = bond$X2024_1_10[i]
+  maturity_date = bond$Maturity_Date[i]
+  ytm_1_10=bond.yield("2024-01-10", maturity_date, coupon = coupon_rate , freq = 2, closed_price, comp.freq = 2, redemption_value = 100)
+  ytm[i,3] =  ytm_1_10
+}
+```
+
+#bond yield on 2024-01-11
+```{r}
+for (i in 1:11) {
+  coupon_rate = bond$coupon_rate[i]
+  closed_price = bond$X2024_1_11[i]
+  maturity_date = bond$Maturity_Date[i]
+  ytm_1_11=bond.yield("2024-01-11", maturity_date, coupon = coupon_rate , freq = 2, closed_price, comp.freq = 2, redemption_value = 100)
+  ytm[i,4] =  ytm_1_11
+}
+```
+
+#bond yield on 2024-01-12
+```{r}
+for (i in 1:11) {
+  coupon_rate = bond$coupon_rate[i]
+  closed_price = bond$X2024_1_12[i]
+  maturity_date = bond$Maturity_Date[i]
+  ytm_1_12=bond.yield("2024-01-12", maturity_date, coupon = coupon_rate , freq = 2, closed_price, comp.freq = 2, redemption_value = 100)
+  ytm[i,5] =  ytm_1_12
+}
+```
+
+#bond yield on 2024-01-15
+
+```{r}
+for (i in 1:11) {
+  coupon_rate = bond$coupon_rate[i]
+  closed_price = bond$X2024_1_15[i]
+  maturity_date = bond$Maturity_Date[i]
+  ytm_1_15=bond.yield("2024-01-15", maturity_date, coupon = coupon_rate , freq = 2, closed_price, comp.freq = 2, redemption_value = 100)
+  ytm[i,6] =  ytm_1_15
+}
+```
+
+#bond yield on 2024-01-16
+
+```{r}
+for (i in 1:11) {
+  coupon_rate = bond$coupon_rate[i]
+  closed_price = bond$X2024_1_16[i]
+  maturity_date = bond$Maturity_Date[i]
+  ytm_1_16=bond.yield("2024-01-16", maturity_date, coupon = coupon_rate , freq = 2, closed_price, comp.freq = 2, redemption_value = 100)
+  ytm[i,7] =  ytm_1_16
+}
+```
+
+#bond yield on 2024-01-17
+```{r}
+for (i in 1:11) {
+  coupon_rate = bond$coupon_rate[i]
+  closed_price = bond$X2024_1_17[i]
+  maturity_date = bond$Maturity_Date[i]
+  ytm_1_17=bond.yield("2024-01-17", maturity_date, coupon = coupon_rate , freq = 2, closed_price, comp.freq = 2, redemption_value = 100)
+  ytm[i,8] =  ytm_1_17
+}
+```
+
+#bond yield on 2024-01-18
+```{r}
+for (i in 1:11) {
+  coupon_rate = bond$coupon_rate[i]
+  closed_price = bond$X2024_1_18[i]
+  maturity_date = bond$Maturity_Date[i]
+  ytm_1_18=bond.yield("2024-01-18", maturity_date, coupon = coupon_rate , freq = 2, closed_price, comp.freq = 2, redemption_value = 100)
+  ytm[i,9] =  ytm_1_18
+}
+```
+
+#bond yield on 2024-01-19
+```{r}
+for (i in 1:11) {
+  coupon_rate = bond$coupon_rate[i]
+  closed_price = bond$X2024_1_19[i]
+  maturity_date = bond$Maturity_Date[i]
+  ytm_1_19=bond.yield("2024-01-19", maturity_date, coupon = coupon_rate , freq = 2, closed_price, comp.freq = 2, redemption_value = 100)
+  ytm[i,10] =  ytm_1_19
+}
+```
+
+```{r}
+#plot yield curve
+t_lag <- seq(0, 5, 0.5)
+colors <- c("#17becf","#1f77b4", "#ff7f0e", "#2ca02c", "#d62728", "#9467bd",
+               "#8c564b", "#e377c2", "#7f7f7f", "#bcbd22")
+plot(t_lag,ytm[,1],type="l", col = colors[1], xlab="Maturity Date",ylab="Yield to Maturity", main =" 5-Year Yield Curve of 10 Days",xaxt = 'n')
+for (i in 2:10) {
+  lines(t_lag, ytm[, i], col = colors[i])
+}
+legend("topright",legend = c("2024-01-08", "2024-01-09","2024-01-10","2024-01-11","2024-01-12","2024-01-15","2024-01-16","2024-01-17","2024-01-18","2024-01-19"), lty=c(1,1), lwd=c(2,2),cex=0.75, col = colors[1:10])
+axis(1, at = t_lag, labels = t_lag)
+```
+```{r}
+coupon <- bond$coupon_rate * 0.5
+bond_value <- data.frame(bond[,c(5:14)])
+spot <-matrix(ncol = 10, nrow = 11)
+for (i in 1:10) {
+  sp <- c()
+  Price <- bond_value[i]
+  for (j in 1:11) {
+    if (j == 1){
+      r_1 <- ((100*coupon[j] + 100) / Price[j,])^2 - 1
+      sp[j] = r_1
+    }
+    else { 
+      cp <- 0
+      for (k in 1:(j-1)) {
+        cp <- cp + (100 * coupon[j]) / ((1 + sp[k])^(k))
+    }
+      r_t <- ((100*coupon[j] + 100)/(Price[j,]-cp))^(2/(j)) - 1
+      sp[j] <- r_t
+    }
+  }
+  spot[,i] <- sp
+}
+
+```
+
+
+#plot spot curve
+```{r}
+plot(t_lag,spot[,1],type="l", col = colors[1], xlab="Time to Maturity (Years)",ylab="Spot rate", main =" 5-Year Spot Curve of 10 Days")
+for (i in 2:10) {
+  lines(t_lag, spot[,i], col = colors[i])
+}
+legend("topright",legend = c("2024-01-08", "2024-01-09","2024-01-10","2024-01-11","2024-01-12","2024-01-15","2024-01-16","2024-01-17","2024-01-18","2024-01-19"), lty=c(1,1), lwd=c(2,2),cex=0.6, col = colors[1:10])
+```
+
+```{r}
+t <- seq(1,5,0.5)
+subset <- spot[-c(1:2), ]
+plot(t,subset[,1],type="l", col = colors[1], xlab="Time to Maturity (Years)",ylab="Spot rate", main =" 5-Year Spot Curve of 10 Days")
+for (i in 2:10) {
+  lines(t, subset[,i], col = colors[i])
+}
+legend("topright",legend = c("2024-01-08", "2024-01-09","2024-01-10","2024-01-11","2024-01-12","2024-01-15","2024-01-16","2024-01-17","2024-01-18","2024-01-19"), lty=c(1,1), lwd=c(2,2),cex=0.6, col = colors[1:10])
+```
+
+
+#forward rate
+```{r}
+forward <- matrix(ncol = 10, nrow = 4)
+subspot <- spot[c(3, 5, 7, 9), ]
+for (i in 1:10) {
+  fr <- c()
+  sub <- subspot[, i]
+  for (j in 1:4) {
+      f_1 = ((1 + sub[j])^(2 + 2*j) / ((1 + sub[1])^2))^(1 / (2*j)) - 1
+      fr[j] = f_1
+  }
+  forward[,i] <- fr
+}
+```
+
+```{r}
+t <- c("1yr-1yr", "1yr-2yr", "1yr-3yr", "1yr-4yr")
+x_values <- seq_along(t)
+plot(x_values, forward[,1],type="l", col = colors[1],xlab = "time rate", ylab="Forward Rate", main =" 5-Year Forward of 10 Days", xaxt = 'n')
+for (i in 2:9) {
+  lines(x_values, forward[,i], col = colors[i])
+}
+legend("topright",legend = c("2024-01-08", "2024-01-09","2024-01-10","2024-01-11","2024-01-12","2024-01-15","2024-01-16","2024-01-17","2024-01-18","2024-01-19"), lty=c(1,1), lwd=c(2,2),cex=0.55, col = colors[1:10])
+axis(1, at = x_values, labels = t)
+```
+
+```{r}
+yield <- matrix(ncol = 9, nrow = 5)
+for (i in 1:9){
+  yield[1,i]<-log(ytm[2,i+1]/ytm[2,i])
+  yield[2,i]<-log(ytm[4,i+1]/ytm[4,i])
+  yield[3,i]<-log(ytm[6,i+1]/ytm[6,i])
+  yield[4,i]<-log(ytm[8,i+1]/ytm[8,i])
+  yield[5,i]<-log(ytm[10,i+1]/ytm[10,i])
+}
+yield <- t(yield)
+
+covyield = cov(yield)
+covyield
+knitr::kable(covyield)
+```
+
+```{r}
+cov_f <- matrix(ncol = 9, nrow = 4)
+for (i in 1:9){
+  cov_f[1,i]<-log(forward[1,i+1]/forward[1,i])
+  cov_f[2,i]<-log(forward[2,i+1]/forward[2,i])
+  cov_f[3,i]<-log(forward[3,i+1]/forward[3,i])
+  cov_f[4,i]<-log(forward[4,i+1]/forward[4,i])
+}
+cov_f <- t(cov_f)
+
+covforw = cov(cov_f)
+covforw
+knitr::kable(covforw)
+```
+
+```{r}
+eigen_y <- eigen(covyield)
+eigen_y$values
+eigen_y$vectors
+```
+
+```{r}
+eigen_for <- eigen(covforw)
+eigen_for$values
+eigen_for$vectors
+```
+
+Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
